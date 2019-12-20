@@ -5,6 +5,12 @@ class EventsController < ApplicationController
   end
 
   def create
+    before_action :logged_in_user, only: %i[new create]
+  def new
+    @event = Event.new
+  end
+
+  def create
     @event = current_user.created_events.build(events_params)
     if @event.save
       flash[:success] = 'Event created successfully'
