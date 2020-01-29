@@ -4,6 +4,7 @@
         <div class= "col-12 pt-3 pb-3 mb-4 border-bottom">
             <div class= "float-right">
                 <% if log_in? %>
+                    
                     <%= link_to "Log Out", logout_path,  method: :delete, class: "btn btn-primary"  %>
                 <% else  %>
                     <%= link_to "Log in", new_user_path, class: "btn btn-outline-primary" %>

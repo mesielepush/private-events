@@ -13,7 +13,7 @@
 
     <% if @user.created_events.empty? %>
         <div class ="col-sm-12">
-            <p class="bg-info text-white">EMail: <p><%= @user.email %></p></p>
+            <p class="bg-info text-white">EMail: <p><%= @user.id %></p></p>
         </div>
     <% else %>
 
@@ -26,4 +26,3 @@
         </ul>
     <% end %>
 
-<% end %>
