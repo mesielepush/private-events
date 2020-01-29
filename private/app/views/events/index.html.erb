@@ -3,8 +3,7 @@
     <div class= "container">
       <div class ="row">
         <div class ="col-sm-12">
-            </div>
-                <p class="h3">PrivateMerbers EVENTS</p>
+            <p class="h3">PrivateMerbers EVENTS</p>
                 <% if logged_in? %>
                     <p>Welcome back Mr: <%= current_user.name %></p>
                 <% end %>
@@ -23,9 +22,6 @@
                 <div id='create-event'>
                     <%= link_to "Create event", new_event_path %>
                 </div>
-
-            <div>
-          
         </div>
       </div>
     </div>

@@ -1,0 +1,28 @@
+<section class="create-event">
+
+    <div class= "container">
+        <div class ="row">
+            <div class ="col-sm-12">
+                <p class="h3">PrivateMerbers Create your Event</p>
+                <%= form_for(@event, url: events_path) do |f| %>
+                    <%= f.label :name %>
+                    <%= f.text_field :name %>
+
+                    <%= f.label :location %>
+                    <%= f.text_field :location %>
+
+                    <%= f.label :date %>
+                    <%= f.date_field :date %>
+
+                    <%= f.label :description %>
+                    <%= f.text_area :description, cols: 20, rows: 30 %>
+
+                    <%= f.submit 'Create Event' %>
+                <% end %>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
