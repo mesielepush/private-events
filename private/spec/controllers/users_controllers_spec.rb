@@ -13,7 +13,6 @@ RSpec.describe UsersController, type: :controller do
       get :create, params: { user: { name: 'pipipi', email: 'something@mailnodotcom' } }
       expect(response).to have_http_status(:success)
       expect(flash.empty?).to eq(false)
-      # expect(logged_in?).to eq(true)
     end
   end
 

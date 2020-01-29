@@ -13,4 +13,5 @@
 
 
 class User < ApplicationRecord
+    has_many(:created_events, foreing_key: 'creator_id', class_name: 'Event')
 end

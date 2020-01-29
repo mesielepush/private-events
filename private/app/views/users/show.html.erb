@@ -10,3 +10,20 @@
     </div>
     </div>
 </div>
+
+    <% if @user.created_events.empty? %>
+        <div class ="col-sm-12">
+            <p class="bg-info text-white">EMail: <p><%= @user.email %></p></p>
+        </div>
+    <% else %>
+
+        <ul>
+            <% @user.created_events.each do |event| %>
+            <li><%= event.name %></li>
+            <li><%= event.location %></li>
+            <li><%= event.date %></li>
+            <% end %>
+        </ul>
+    <% end %>
+
+<% end %>
