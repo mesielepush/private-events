@@ -1,0 +1,33 @@
+<section class="all-events">
+
+    <div class= "container">
+      <div class ="row">
+        <div class ="col-sm-12">
+            </div>
+                <p class="h3">PrivateMerbers EVENTS</p>
+                <% if logged_in? %>
+                    <p>Welcome back Mr: <%= current_user.name %></p>
+                <% end %>
+
+                <%= will_paginate %>
+                    <% @events.each do |event| %>
+                    <div>
+                        <p><%= event.name %></p>
+                        <p><%= event.location %></p>
+                        <p><%= event.date_event %></p>
+                        <p><%= event.description %></p>
+                    </div>
+                    <% end %>
+                <%= will_paginate %>
+
+                <div id='create-event'>
+                    <%= link_to "Create event", new_event_path %>
+                </div>
+
+            <div>
+          
+        </div>
+      </div>
+    </div>
+
+</section>
