@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Private Events</title>
+    <title>StaticPages#home</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= render 'layouts/shim' %>
   </head>
 
   <body>
-  <div>
-  
-  
-    <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-    <% end %>
+  <%= render partial: "layouts/header" %>
     
-    <%= yield %>
+    <div class= "container">
+      <div class ="row">
+        <div class ="col-sm-12">
+          <%= yield %>
+          
+        </div>
+      </div>
+    </div>
     
+  <%= render partial: "layouts/footer" %>
   </body>
 </html>
