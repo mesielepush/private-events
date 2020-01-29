@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in(@user)
-      flash[:succcess] = "This is Private Events Mr #{@user}"
       render 'show'
     else
       render 'new'
