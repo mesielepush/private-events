@@ -1,9 +1,17 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
+#                                  root GET    /                                                                                        static_pages#home
 #                                 users POST   /users(.:format)                                                                         users#create
 #                              new_user GET    /users/new(.:format)                                                                     users#new
 #                                  user GET    /users/:id(.:format)                                                                     users#show
+#                                 login GET    /login(.:format)                                                                         sessions#new
+#                                       POST   /login(.:format)                                                                         sessions#create
+#                                logout DELETE /logout(.:format)                                                                        sessions#delete
+#                                events GET    /events(.:format)                                                                        events#index
+#                                       POST   /events(.:format)                                                                        events#create
+#                             new_event GET    /events/new(.:format)                                                                    events#new
+#                                 event GET    /events/:id(.:format)                                                                    events#show
 #         rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create

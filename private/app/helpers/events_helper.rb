@@ -4,10 +4,10 @@ module EventsHelper
         params.require(:event).permit(:name, :location, :date, :description)
       end
     
-      def log_user
-        return if log_in?
-        flash[:danger] = "I don't know you..."
-        redirect_to(login_url)
+    def log_user
+      return if log_in?
+      flash[:danger] = "I don't know what is happening..."
+      redirect_to(login_url)
 
-      end
+    end
 end
