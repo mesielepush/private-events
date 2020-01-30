@@ -7,25 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'json'
 
-def deleteAllUsers()
-    User.destroy_all()
+
+
+raw_data = File.read('app/assets/fakedata/data.json')
+data = JSON.parse(raw_data)
+names = data['names']
+titles = data['titles']
+descriptions = data['description']
+locations = data['location']
+
+names.each do |index, value|
+    User.create(name: value, email: rand(9).to_s+rand(9).to_s+rand(9).to_s+rand(9).to_s+'_test@fakemail.com')
 end
-  
 
-def create_random_data()
+creators_size =  names.length()/3.floor
+event_creators = Array.new(100) { rand(1...creators_size)}
 
-    raw_data = File.read('data.json')
-    data = JSON.parse(raw_data)
-    names = data['names']
-    titles = data['title']
-    description = data['description']
-
-    names.each do |x|
-        User.create(name: x, x+'_test@fakemail.com')
-    end
-    creators_size =  lenght(names)/3.floor)
-    event_creators = Array.new(100) { rand(1...creators_size}
-
-    event_creators.each do |x|
-        User.find_by_name(names[x]).created_events.build(name: names[x],description[rand(lenght(names))],)
-  end
+event_creators.each do |x|
+    User.find_by_name(names[x.to_s]).created_events.build(name: titles[x.to_s], description: descriptions[rand(names.length()).to_s], location: locations[x.to_s])
+end
