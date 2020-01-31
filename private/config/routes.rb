@@ -9,6 +9,7 @@
 #                                       POST   /login(.:format)                                                                         sessions#create
 #                                logout DELETE /logout(.:format)                                                                        sessions#delete
 #                                events GET    /events(.:format)                                                                        events#index
+#                                       GET    /events(.:format)                                                                        events#index
 #                                       POST   /events(.:format)                                                                        events#create
 #                             new_event GET    /events/new(.:format)                                                                    events#new
 #                                 event GET    /events/:id(.:format)                                                                    events#show
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#delete'
+  get '/logout',  to: 'sessions#destroy' 
+  get    '/events',   to: 'events#index'
   resources :events, only: [:new, :create, :show, :index]
 end

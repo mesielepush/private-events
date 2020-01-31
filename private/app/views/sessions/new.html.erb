@@ -1,10 +1,18 @@
-<section class="home"> 
-    <h1>Sign in</h1>
-    <%= form_for(:session, url: login_path) do |f| %>
 
-        <%= f.label :email %>
-        <%= f.email_field :email , autofocus: true, autocomplete: "email" %>
+<%= render partial: "layouts/header" %>
+      <div class = 'container'>
+            <section class="sign-up mt-5">
 
-        <%= f.submit "Sign in" %>
-    <% end %>
-</section> 
+                  <h1>Log in</h1>
+                  
+                  <%= form_for(:session, url: login_path) do |f| %>
+
+                    <%= f.label :email %>
+                    <%= f.email_field :email , autofocus: true, autocomplete: "email" %>
+
+                    <%= f.submit "Get in" %>
+                <% end %>
+
+            </section>
+      </div>
+<%= render partial: "layouts/footer" %>

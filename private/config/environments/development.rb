@@ -49,18 +49,9 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
+  
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-
-  # Checks efficiency
-  config.after_initialize do
-    Bullet.enable = true
-    Bullet.alert = ENV['BULLET_ALERTS']
-    Bullet.bullet_logger = true
-    Bullet.console = true
-    Bullet.rails_logger = true
-  end
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true

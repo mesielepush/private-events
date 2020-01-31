@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     else
       flash[:danger] = 'There is No User with that name or wherever'
       redirect_to(root_url)
+    end
   end
 
   private

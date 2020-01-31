@@ -1,29 +1,35 @@
+<%= render partial: "layouts/header" %>
 <section class="all-events">
 
     <div class= "container">
       <div class ="row">
-        <div class ="col-sm-12">
-            <p class="h3">PrivateMerbers EVENTS</p>
-                <% if log_in? %>
-                    <p>Welcome back Mr: <%= current_user.name %></p>
-                <% end %>
+        <div class ="col-sm-12 mt-5">
+            
+            <% if log_in? %>
+                Welcome back<span class='h2'> Mr: <%= current_user.name %></span>
+            <% end %>
 
-                <%= will_paginate %>
-                    <% @events.each do |event| %>
-                    <div>
+            <%= will_paginate %>
+                <% @events.each do |event| %>
+
+                <div class="jumbotron jumbotron-fluid mt-5">
+                    <div class="container">
                         <p><%= event.name %></p>
                         <p><%= event.location %></p>
                         <p><%= event.date %></p>
                         <p><%= event.description %></p>
                     </div>
-                    <% end %>
-                <%= will_paginate %>
-
-                <div id='create-event'>
-                    <%= link_to "Create event", new_event_path %>
                 </div>
+            
+                <% end %>
+            <%= will_paginate %>
+
+            <div id='create-event'>
+                <%= link_to "Create event", new_event_path %>
+            </div>
         </div>
       </div>
     </div>
 
 </section>
+<%= render partial: "layouts/footer" %>

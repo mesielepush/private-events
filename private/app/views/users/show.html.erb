@@ -10,15 +10,17 @@
     </div>
     </div>
 </div>
-
-    <% if @user.created_events.empty? %>
-        <div class ="col-sm-12">
-            <p class="bg-info text-white">EMail: <p><%= @user.email %></p></p>
+<%= link_to "Home", root_path, class: "btn btn-outline-primary" %>
+    <% if @user.events.empty? %>
+        <div class= "container">
+            
+            <p class="bg-info text-white">No Events for: <p><%= Time.now %></p></p>
+            
         </div>
     <% else %>
 
         <ul>
-            <% @user.created_events.each do |event| %>
+            <% @user.events.each do |event| %>
             <li><%= event.name %></li>
             <li><%= event.location %></li>
             <li><%= event.date %></li>

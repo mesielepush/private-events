@@ -1,28 +1,22 @@
-<section class="create-event">
-
-    <div class= "container">
-        <div class ="row">
-            <div class ="col-sm-12">
-                <p class="h3">PrivateMerbers Create your Event</p>
-                <%= form_for(@event, url: events_path) do |f| %>
-                    <%= f.label :name %>
-                    <%= f.text_field :name %>
-
-                    <%= f.label :location %>
-                    <%= f.text_field :location %>
-
-                    <%= f.label :date %>
-                    <%= f.date_field :date %>
-
-                    <%= f.label :description %>
-                    <%= f.text_area :description, cols: 20, rows: 30 %>
-
-                    <%= f.submit 'Create Event' %>
-                <% end %>
-
-            </div>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3 mb-3">
+      <h1>Create Event</h1>
     </div>
+    <div class="col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+      <%= form_with model: @event, local:true do |f| %>
+        <%= f.label "Name" %>
+        <%= f.text_field :name, class: "form-control" %>
 
-</section>
+        <%= f.label "Date" %>
+        <%= f.datetime_local_field :date, class: "form-control" %>
+
+        <%= f.label "Description" %>
+        <%= f.text_area :description, class: "form-control" %>
+        <br>
+        <%= f.submit "Create Event", class:"btn btn-success" %>
+      <% end  %>
+    </div>
+  </div>
+</div>
 

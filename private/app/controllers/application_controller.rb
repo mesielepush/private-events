@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  helper_method :current_user?, :current_user
+  
+  helper_method :current_user?, :current_user, :sign_out
 
   def sign_in(user)
-    session[:user_id] = user.user_id
+    session[:user_id] = user.id
   end
 
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+    @current_user ||= (session[:user_id] ? User.find(session[:user_id]) : nil)
   end
 
   def current_user?(user)
@@ -19,6 +20,7 @@ class ApplicationController < ActionController::Base
     session.delete(:user_id)
     @current_user = nil
   end
+
   def log_in?
     !current_user.nil?
   end
