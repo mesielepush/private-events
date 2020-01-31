@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in(@user)
-      render 'show'
+      redirect_to user_path(@user)
     else
       flash.now[:danger] = 'Something is wrong... what happened????!!!!!!'
       render 'new'
@@ -19,8 +19,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user
-      @my_upcoming_events = @user.events.upcoming
-      @my_past_events = @user.events.past
+      @my_events_upcoming = @user.events.upcoming
+      @my_events_past = @user.events.past
       @attended_upcoming_events = @user.attended_events.upcoming
       @attended_past_events = @user.attended_events.past
     else
