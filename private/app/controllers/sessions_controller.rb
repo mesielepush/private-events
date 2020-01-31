@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
             sign_in(user)
             redirect_to(user)
         else
-            flash.now[:danger] = "I don't know that email"
+            flash.now[:danger] = "I don't know that User you said you are, sorry, but not really..."
             render('new')
         end
     end
