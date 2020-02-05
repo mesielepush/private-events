@@ -24,9 +24,9 @@ RSpec.describe User, type: :model do
   end
   
   it 'is not valid without name' do
-    user = User.new('some_valid_name')
+    user = User.new(name:'some_valid_name', email: 'popo@pipi.com')
     user.name = nil
-    expect(user).to eql(false)
+    expect(user).to_not be_valid
   end
 
   it 'is not valid for duplicated emails' do

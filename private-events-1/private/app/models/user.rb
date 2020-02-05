@@ -17,4 +17,7 @@ class User < ApplicationRecord
   has_many(:user_events)
   has_many(:attended_events, through: :user_events, source: :event)
   before_save { email.downcase! }
+
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
 end
