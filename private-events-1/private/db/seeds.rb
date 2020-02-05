@@ -17,15 +17,17 @@ descriptions = data['description']
 locations = data['location']
 
 names.each do |index, value|
-    User.create(name: value, email: Faker::Internet.email)
+    user = User.create(name: value, email: Faker::Internet.email)
+    puts 'User: ', user.name, ' created.'
+    puts 'User:id: ', user.id
+    user.events.create(name: titles[index],
+        description: descriptions[index],
+        location: locations[index],
+        date: [Faker::Date.between(from: 75.days.ago, to: Date.today),Faker::Date.forward(days: rand(75)) ].sample(1)[0])
+    
+    
+        
 end
 
 creators_size =  names.length()/3.floor
 event_creators = Array.new(100) { rand(1...creators_size)}
-
-event_creators.each do |x|
-    User.find_by_name(names[x.to_s]).events.build(name: titles[x.to_s],
-                                                            description: descriptions[rand(names.length()).to_s],
-                                                            location: locations[x.to_s],
-                                                        date: [Faker::Date.between(from: 75.days.ago, to: Date.today) ,Faker::Date.forward(days: rand(75)) ].sample(1))
-end

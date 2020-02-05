@@ -1,0 +1,7 @@
+<% events.each do |event| %>
+<ul class="container">
+    <li><%= event.location %></li>
+    <li>Location: <%= event.location %></li>
+    <li><%= time_tag event.date %></li>
+</ul>
+<% end %>
