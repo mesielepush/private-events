@@ -43,6 +43,6 @@ Rails.application.routes.draw do
   get '/logout',  to: 'sessions#destroy' 
   get    '/events',   to: 'events#index'
   get    '/events_attend',   to: 'user_events#create'
-  
+  get    '/user_events',   to: 'user_events#show'
   resources :events, only: [:new, :create, :show, :index]
 end

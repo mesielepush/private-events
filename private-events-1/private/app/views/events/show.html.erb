@@ -10,10 +10,7 @@
                 <p><%= @event.location %></p>
                 <p><%= @event.date %></p>
                 <p><%= @event.description %></p>
-                <p>CREATOR:id::::<%= @event.creator.id %></p>
-                <p>EVENT:id::::<%= @event.id %></p>
-
-                <p><%= @event.name %></p>
+                
             </div>
         </div>
         <%= link_to "attend",  events_attend_path(user_id: @event.creator.id, event_id: @event.id ), class: "btn btn-outline-success" %>
@@ -22,6 +19,7 @@
         <ul class="list-group list-group-flush">
 
             <% @event.attendees.each do |attendee| %>
+
                 <li class="list-group-item"><%= attendee.name %></li>
                 <li class="list-group-item"><%= attendee.email %></li>
             <% end %>
