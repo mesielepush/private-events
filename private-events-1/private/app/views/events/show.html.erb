@@ -1,16 +1,22 @@
+<%= render partial: "layouts/header" %>
 <section class="create-event">
 
     <div class= "container">
         <div class ="row">
             <div class ="col-sm-12">
-                <p class="h3">PrivateMerbers Events</p>
+                
                 <p><%= @event.creator.name %></p>
                 <p><%= @event.name %></p>
                 <p><%= @event.location %></p>
                 <p><%= @event.date %></p>
                 <p><%= @event.description %></p>
+                <p>CREATOR:id::::<%= @event.creator.id %></p>
+                <p>EVENT:id::::<%= @event.id %></p>
+
+                <p><%= @event.name %></p>
             </div>
         </div>
+        <%= link_to "attend",  events_attend_path(user_id: @event.creator.id, event_id: @event.id ), class: "btn btn-outline-success" %>
     </div>
     <div class="card" style="width: 18rem;">
         <ul class="list-group list-group-flush">
@@ -21,6 +27,8 @@
             <% end %>
             
         </ul>
+    
     </div>
+    
 </section>
 

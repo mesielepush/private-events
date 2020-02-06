@@ -20,6 +20,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @register = UserEvent.new
   end
 
   def index

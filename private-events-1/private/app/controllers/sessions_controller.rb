@@ -2,7 +2,9 @@
 
 class SessionsController < ApplicationController
   def new; end
-
+  def log_in?
+    !current_user.nil?
+  end
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user

@@ -23,4 +23,13 @@ class ApplicationController < ActionController::Base
   def log_in?
     !current_user.nil?
   end
+  def logged_in_user
+    return if logged_in?
+
+    flash[:danger] = 'Please log in.'
+    redirect_to login_url
+  end
+  def logged_in?
+    !current_user.nil?
+  end
 end
