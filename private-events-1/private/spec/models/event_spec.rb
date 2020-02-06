@@ -18,7 +18,7 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   it 'creates several Events and tells you how many are upcoming and how many are past' do
-    user = User.create(name:  Faker::Name.first_name, email: Faker::Internet.email)
+    user = User.create(name: Faker::Name.first_name, email: Faker::Internet.email)
     Event.create(name: 'Up 1', location: 'Somewhere', date: '2020/12/31', creator: user)
     Event.create(name: 'Up 2', location: 'Elsewhere', date: '2021/12/31', creator: user)
     Event.create(name: 'Pass 1', location: 'Yes sure', date: '2000/01/01', creator: user)
