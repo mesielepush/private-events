@@ -7,8 +7,10 @@
 #                                  user GET    /users/:id(.:format)                                                                     users#show
 #                                 login GET    /login(.:format)                                                                         sessions#new
 #                                       POST   /login(.:format)                                                                         sessions#create
-#                                logout DELETE /logout(.:format)                                                                        sessions#delete
+#                                logout GET    /logout(.:format)                                                                        sessions#destroy
 #                                events GET    /events(.:format)                                                                        events#index
+#                         events_attend GET    /events_attend(.:format)                                                                 user_events#create
+#                           user_events GET    /user_events(.:format)                                                                   user_events#show
 #                                       GET    /events(.:format)                                                                        events#index
 #                                       POST   /events(.:format)                                                                        events#create
 #                             new_event GET    /events/new(.:format)                                                                    events#new

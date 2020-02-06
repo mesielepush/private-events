@@ -10,14 +10,14 @@
             <% end %>
 
             <%= will_paginate %>
-                <% @events.each do |event| %>
+                <% current_user.user_events.each do |event| %>
 
                 <div class="jumbotron jumbotron-fluid mt-5">
                     <div class="container">
-                        <p><%= event.name %></p>
-                        <p><%= event.location %></p>
-                        <p><%= event.date %></p>
-                        <p><%= event.description %></p>
+                        <p><%= Event.find_by_id(event.event_id).name %></p>
+                        <p><%= Event.find_by_id(event.event_id).location %></p>
+                        <p><%= Event.find_by_id(event.event_id).date %></p>
+                        <p><%= Event.find_by_id(event.event_id).description %></p>
                     </div>
                 </div>
             

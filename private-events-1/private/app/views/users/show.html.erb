@@ -1,30 +1,45 @@
 
 
+<%= render partial: "layouts/header" %>
+<br>
+<br>
 <div class= "container">
     <div class ="row">
-    <div class ="col-sm-12">
-        <p class="bg-info text-white">Hi Mr.<h2><%= @user.name %></h2></p>
+        <div class ="col-sm-12">
+            <p class="bg-dark text-white text-center">.......|::°::|.......<h1 class='text-center'><%= @user.name %></h1></p>
+        </div>
+        <div class ="col-sm-12">
+            <p class="bg-dark text-white  text-center">.......|::°::|....... <p class= 'text-center'><%= @user.email %></p></p>
+        </div>
     </div>
-    <div class ="col-sm-12">
-        <p class="bg-info text-white">EMail: <p><%= @user.email %></p></p>
-    </div>
-    </div>
-</div>
-<%= link_to "Home", root_path, class: "btn btn-outline-primary" %>
-    <% if @user.events.empty? %>
+<br>
+
+    <% if @user.user_events.empty? %>
         <div class= "container">
             
             <p class="bg-info text-white">No Events for: <p><%= Time.now %></p></p>
             
         </div>
     <% else %>
+        <div>
+            
+                <% @user.user_events.each do |event| %>
+                <div class = 'bg-dark text-white text-center' >
+                    ...
+                </div>
+                <ul>
+                    <li><%= link_to <%= Event.find_by_id(event.event_id).name %> , events_path((event.event_id), class: "btn btn-success " %>
+                    </li>
+                    <li><%= Event.find_by_id(event.event_id).location %></li>
+                    <li><%= Event.find_by_id(event.event_id).date %></li>
+                </ul>
+                <% end %>
+            </ul>
+        </div>
+        
 
-        <ul>
-            <% @user.events.each do |event| %>
-            <li><%= event.name %></li>
-            <li><%= event.location %></li>
-            <li><%= event.date %></li>
-            <% end %>
-        </ul>
+        
     <% end %>
+</div>
 
+<%= render partial: "layouts/footer" %>

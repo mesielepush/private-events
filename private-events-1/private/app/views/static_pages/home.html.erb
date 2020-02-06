@@ -20,15 +20,20 @@
         </div>
       </div>
     </div>
-
+<br>
+  <div class= "container w-100 p-3" style="background-image: url('https://lh3.googleusercontent.com/proxy/_7pv2GwhHSlp6qI1uAsWwwNEqdqVUXgy_SxTqBpkDPEKP2ibPvgv-4OqbgDE7Ekm1ObBWw_Qs_IPyhrFQEYm6CDzGDDzGH2oIcbZOquMRZ6Tvi6oYcBHjW-kBOtPB24FJWBVyrr2ZYkMN-X0F3PZBx2QN4o'); background-repeat: no-repeat; background-size: cover;">
   
-    <h1>ALL EVENTS</h1>
-    <p class="title-events">Upcoming Events</p>
-    <%= render partial:'shared/event', locals: { events: Event.past.paginate(page: params[:page], per_page: 5) } %>
-    <p class="title-events">Past Events</p>
+    <h1 class= 'text-white '>Events</h1>
+    <br>
+    <p class="title-events text-white bg-secondary">Upcoming Events</p>
     <%= render partial:'shared/event', locals: { events: Event.upcoming.paginate(page: params[:page], per_page: 5) } %>
+    <br>
+    <p class="title-events text-white bg-secondary">Past Events</p>
+    <br>
+    <%= render partial:'shared/event', locals: { events: Event.past.paginate(page: params[:page], per_page: 5) } %>
 
+    <%= render partial: "layouts/footer" %>
 
-  <%= render partial: "layouts/footer" %>
+  </div>
   </body>
 </html>

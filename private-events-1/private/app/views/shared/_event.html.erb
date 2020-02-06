@@ -1,8 +1,23 @@
-<% events.each do |event| %>
-<ul class="container">
-    <li>Event Name: <%= link_to event.name, event_path(event) %></li>
-    <li>-------------------</li>
-    <li>Location: <%= event.location %></li>
-    <li><%= time_tag event.date %></li>
-</ul>
-<% end %>
+<div class='container'>
+    <% events.each do |event| %>
+    <br>
+    <div class="container d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body text-white bg-dark">
+                <h5 class="card-title"><%= link_to event.name, event_path(event), class: "btn btn-outline-success" %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= event.location %></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><%= time_tag event.date %></h6>
+                <p class="card-text"><%= event.description %></p>
+
+                <% if log_in?  %> 
+                    <%= link_to "attend",  events_attend_path(user_id: current_user, event_id: event.id ), class: "btn btn-outline-success" %>
+                <% else %>
+                
+                <%= link_to "Log in", login_path, class: "btn btn-primary" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
+

@@ -1,22 +1,21 @@
 <header>
-  <div class = "container">
+      
+    <nav class="navbar navbar-dark bg-dark text-white">
+            <p class="h3 text-white">PrivateEvents</p>
+            <div class= "float-right">
+                <% if log_in? %>
+                    <%= link_to "Log Out", logout_path,  class: "btn btn-primary" %>
+                    <%= link_to "New Event", new_event_path, class: "btn btn-outline-success" %>
+                    <%= link_to "Events", events_path, class: "btn btn-outline-success" %>
+                    <%= link_to "Profile", current_user, class: "btn btn-outline-success" %>
+                    <%= link_to "HOME", root_path, class: "btn btn-outline-success" %>
+                <% else  %>
+                    <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-primary" %>
+                    <%= link_to "Log in", login_path, class: "btn btn-primary" %>
+                    <%= link_to "HOME", root_path, class: "btn btn-outline-success" %>
+                <% end  %>
+            </div>
+    </nav>
     
-        <nav class="navbar navbar-dark bg-dark text-white">
-                <p class="h3 text-white">PrivateMembers</p>
-                <div class= "float-right">
-                    <% if log_in? %>
-                        <%= link_to "Log Out", logout_path,  class: "btn btn-primary" %>
-                        <%= link_to "New Event", new_event_path, class: "btn btn-outline-success" %>
-                        <%= link_to "Events", events_path, class: "btn btn-outline-success" %>
-                        <%= link_to "Profile", current_user, class: "btn btn-outline-success" %>
-                    <% else  %>
-                        <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-primary" %>
-                        <%= link_to "Log in", login_path, class: "btn btn-primary" %>
-                    <% end  %>
-                </div>
-                
-            
-        </nav>
-    
-</div>
+
 </header>

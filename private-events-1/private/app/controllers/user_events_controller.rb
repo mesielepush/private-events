@@ -4,11 +4,14 @@ class UserEventsController < ApplicationController
     def create
     
       #event = Event.find(user_event_params[:event_id])
-      @userevent = UserEvent.new(user_id: params[:user_id], event_id: params[:event_id])
+      if  UserEvent.find_by(user_id: params[:user_id], event_id: params[:event_id]) == nil
+        @userevent = UserEvent.new(user_id: params[:user_id], event_id: params[:event_id])
       
-      if @userevent.save
-        puts 'aosidjfpoaisjdpfoaijspdofiajpsdoifj'
-        flash[:success] = 'You were registered successfully'
+        if @userevent.save
+          
+          flash[:success] = 'You were registered successfully'
+        
+        end
       else
         flash.now[:danger] = 'You are already registered!'
       end
