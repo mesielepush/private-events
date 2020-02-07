@@ -18,7 +18,7 @@ $ bundle install --without production
 Next, migrate the database:
 
 ```
-$ rails db:migrate
+$ rails db:migrate db:seed
 ```
 
 Finally, run the test suite to verify that everything is working correctly:
