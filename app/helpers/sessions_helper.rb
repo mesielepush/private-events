@@ -3,7 +3,7 @@
 module SessionsHelper
   def log_in?
     !current_user.nil?
-    end
+  end
 
   def current_user
     @current_user ||= (session[:user_id] ? User.find(session[:user_id]) : nil)
