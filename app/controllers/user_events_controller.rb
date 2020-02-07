@@ -16,7 +16,7 @@ class UserEventsController < ApplicationController
     puts 'CREATING SOMETHIN'
   end
 
-    private
+  private
 
   def show; end
-  end
+end
