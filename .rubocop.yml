@@ -20,9 +20,9 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   ExcludedMethods: ['describe']
 
-Layout/Documentation:
+Style/Documentation:
   Enabled: false
-Layout/ClassAndModuleChildren:
+Style/ClassAndModuleChildren:
   Enabled: false
 
 Layout/HashAlignment:
