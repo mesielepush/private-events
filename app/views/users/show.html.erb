@@ -1,0 +1,63 @@
+
+
+<%= render partial: "layouts/header" %>
+<br>
+<br>
+<div class= "container">
+    <div class ="row">
+        <div class ="col-sm-12">
+            <p class="bg-dark text-white text-center">.......|::°::|.......<h1 class='text-center'><%= @user.name %></h1></p>
+        </div>
+        <div class ="col-sm-12">
+            <p class="bg-dark text-white  text-center">.......|::°::|....... <p class= 'text-center'><%= @user.email %></p></p>
+        </div>
+    </div>
+<br>
+
+    <% if @user.user_events.empty? %>
+        <div class= "container">
+            
+            <p class="bg-info text-white">No Events for: <p><%= Time.now %></p></p>
+            
+        </div>
+    <% else %>
+        <div>
+            Upcoming
+                <% @attended_upcoming_events.each do |event| %>
+                <div class = 'bg-dark text-white text-center' >
+                    ...
+                </div>
+                <ul>
+                
+                    
+                    <li><%= Event.find_by_id(event.id).name %></li>
+                    <li><%= Event.find_by_id(event.id).location %></li>
+                    <li><%= Event.find_by_id(event.id).date %></li>
+                </ul>
+                <% end %>
+            
+        </div>
+        <br>
+        <div>
+            Pass
+                <% @attended_past_events.each do |event| %>
+                <div class = 'bg-dark text-white text-center' >
+                    ...
+                </div>
+                <ul>
+                
+                    
+                    <li><%= Event.find_by_id(event.id).name %></li>
+                    <li><%= Event.find_by_id(event.id).location %></li>
+                    <li><%= Event.find_by_id(event.id).date %></li>
+                </ul>
+                <% end %>
+            
+        </div>
+        
+
+        
+    <% end %>
+</div>
+
+<%= render partial: "layouts/footer" %>
