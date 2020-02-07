@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'will_paginate'
 class UsersController < ApplicationController
   def new
     @user = User.new

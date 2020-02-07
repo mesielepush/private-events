@@ -17,8 +17,8 @@ RSpec.describe UserEvent, type: :model do
   creator = User.create(name: Faker::Name.first_name, email: Faker::Internet.email)
   attendee_1 = User.create(name: Faker::Name.first_name, email: Faker::Internet.email)
   attendee_2 = User.create(name: Faker::Name.first_name, email: Faker::Internet.email)
-  first_event = Event.create(name: 'Up 1', location: 'Somewhere', date: '2019/12/31', creator: creator)
-  second_event = Event.create(name: 'Up 1', location: 'Somewhere', date: '2019/12/31', creator: creator)
+  first_event = Event.create(name: 'Some Event 1', location: 'Somewhere', date: '2019/12/31', creator: creator)
+  second_event = Event.create(name: 'Second Event 2', location: 'Somewhere else', date: '2020/12/31', creator: creator)
 
   it 'register some attendees to an event' do
     first_register = UserEvent.create(user_id: attendee_1.id, event_id: first_event.id)

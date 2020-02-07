@@ -24,9 +24,9 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.paginate(page: params[:page], per_page: 10)
-    @past_events = Event.past
-    @events_upcoming = Event.upcoming
+    @events = Event.paginate(page: params[:page], per_page: 5)
+    @past_events = Event.past.paginate(page: params[:page], per_page: 5)
+    @events_upcoming = Event.upcoming.paginate(page: params[:page], per_page: 5)
   end
 
   def log_user

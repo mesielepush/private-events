@@ -1,4 +1,5 @@
 <div class='container'>
+    
     <% events.each do |event| %>
     <br>
     <div class="container d-flex justify-content-center">
@@ -14,10 +15,12 @@
                 <% else %>
                 
                 <%= link_to "Log in", login_path, class: "btn btn-primary" %>
+                
                 <% end %>
             </div>
         </div>
     </div>
     <% end %>
+    
 </div>
 
